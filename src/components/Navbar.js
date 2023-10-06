@@ -5,6 +5,7 @@ import {Link, useLocation} from "react-router-dom";
 import {Box} from "@mui/material";
 import {info} from "../info/Info";
 import logo from "../img/logo.png"
+import logoDark from "../img/logo-dark.png"
 
 const links = [
     {
@@ -44,7 +45,7 @@ export default function Navbar({darkMode, handleClick}) {
                          sx={{borderImageSource: info.gradient}}>
                         <Link to={link.to} onClick={() => setActive(link.active)} className={Style.link}>
                             {!link.type && <p style={{padding: '0.5rem 0'}}>{link.name}</p>}
-                            {link.type && <img src={logo} alt={'logo'} width={'180px'} />}
+                            {link.type && <img src={darkMode ? logoDark : logo} alt={info.initials} width={180}/>}
                         </Link>
                     </Box>
                 ))}
